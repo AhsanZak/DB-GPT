@@ -41,6 +41,9 @@ graph_rag = [
     "dbgpt-tugraph-plugins>=0.1.1",
     "neo4j"
 ]
+audio = [
+    "openai-whisper>=20250625",
+]
 datasource_mysql = [
     # mysqlclient 2.2.x have pkg-config issue on 3.10+
     # If you want to install psycopg2 and mysqlclient in ubuntu, you should install

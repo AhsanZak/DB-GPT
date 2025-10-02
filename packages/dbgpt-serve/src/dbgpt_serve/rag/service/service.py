@@ -30,6 +30,7 @@ from dbgpt_ext.rag.assembler import EmbeddingAssembler
 from dbgpt_ext.rag.chunk_manager import ChunkParameters
 from dbgpt_ext.rag.knowledge import KnowledgeFactory
 from dbgpt_serve.core import BaseService, blocking_func_to_async
+from dbgpt_ext.rag.extractor.audio_transcriber import AudioTranscriber
 
 from ..api.schemas import (
     ChunkServeRequest,
@@ -568,6 +569,26 @@ class Service(BaseService[KnowledgeSpaceEntity, SpaceServeRequest, SpaceServeRes
             - vector_store_connector: vector_store_connector
             - doc: doc
         """
+
+        file_extension = os.path.splitext(knowledge_content)[1].lower()
+        audio_extensions = ['.mp3', '.wav', '.m4a', '.ogg', '.flac']
+        if file_extension in audio_extensions:
+            logger.info(f"audio file detected, doc:{doc.doc_name}")
+            
+            # Transcribe audio to text
+            transriber = AudioTranscriber(model_name="base")
+            trancribe_text = await blocking_func_to_async(
+                self._executor,
+                transcriber.transcribe_audio,
+                knowledge_content
+            )
+            import tempfile
+            with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", delete=False, suffix=".txt") as audio_f:
+                audio_f.write(trancribe_text)
+                knowledge_content = audio_f.name
+
+            logger.info(f"Audio transcription completed, proceeding with text processing ...")
+            
 
         logger.info(f"async doc persist sync, doc:{doc.doc_name}")
         try:
