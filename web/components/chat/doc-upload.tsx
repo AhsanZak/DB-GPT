@@ -45,7 +45,7 @@ export default function DocUpload(props: IProps) {
       maxCount={1}
       multiple={false}
       className='absolute z-10 top-2 left-2'
-      accept='.pdf,.ppt,.pptx,.xls,.xlsx,.doc,.docx,.txt,.md'
+      accept='.pdf,.ppt,.pptx,.xls,.xlsx,.doc,.docx,.txt,.md,.mp3,.wav,.m4a,.ogg,.flac'
     >
       <Button loading={loading} size='small' shape='circle' icon={<PaperClipOutlined />}></Button>
     </Upload>

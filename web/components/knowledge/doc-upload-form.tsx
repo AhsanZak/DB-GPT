@@ -327,7 +327,7 @@ export default function DocUploadForm(props: IProps) {
             multiple
             onChange={handleFileChange}
             maxCount={100}
-            accept='.pdf,.ppt,.pptx,.xls,.xlsx,.doc,.docx,.txt,.md,.zip,.csv'
+            accept='.pdf,.ppt,.pptx,.xls,.xlsx,.doc,.docx,.txt,.md,.zip,.csv,.mp3,.wav,.m4a,.ogg,.flac'
             customRequest={uploadFile}
           >
             <p className='ant-upload-drag-icon'>
