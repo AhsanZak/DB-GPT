@@ -21,13 +21,13 @@ persist_path = "pilot/data"
 # Model Configurations
 [models]
 [[models.llms]]
-name = "deepseek-r1:1.5b"
+name = "qwen3:32b"
 provider = "proxy/ollama"
-api_base = "http://localhost:11434"
+api_base = "http://192.168.100.25:11434"
 api_key = ""
 
 [[models.embeddings]]
-name = "bge-m3:latest"
+name = "deepseek-r1:32b"
 provider = "proxy/ollama"
-api_url = "http://localhost:11434"
+api_url = "http://192.168.100.25:11434"
 api_key = ""

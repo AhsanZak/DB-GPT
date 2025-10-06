@@ -19,9 +19,8 @@ services:
       - dbgptnet
   webserver:
     image: eosphorosai/dbgpt-openai:latest
-    command: dbgpt start webserver --config /app/configs/dbgpt-proxy-siliconflow-mysql.toml
+    command: dbgpt start webserver --config /app/configs/dbgpt-proxy-ollama.toml
     environment:
-      - SILICONFLOW_API_KEY=${SILICONFLOW_API_KEY}
       - MYSQL_PASSWORD=aa123456
       - MYSQL_HOST=db
       - MYSQL_PORT=3306

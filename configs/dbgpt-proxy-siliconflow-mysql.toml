@@ -26,18 +26,18 @@ type = "chroma"
 persist_path = "pilot/data"
 
 # Model Configurations
-[models]
-[[models.llms]]
-name = "Qwen/Qwen2.5-Coder-32B-Instruct"
-provider = "proxy/siliconflow"
-api_key = "${env:SILICONFLOW_API_KEY}"
+# [models]
+# [[models.llms]]
+# name = "Qwen/Qwen2.5-Coder-32B-Instruct"
+# provider = "proxy/siliconflow"
+# api_key = "${env:SILICONFLOW_API_KEY}"
 
-[[models.embeddings]]
-name = "BAAI/bge-m3"
-provider = "proxy/siliconflow"
-api_key = "${env:SILICONFLOW_API_KEY}"
+# [[models.embeddings]]
+# name = "BAAI/bge-m3"
+# provider = "proxy/siliconflow"
+# api_key = "${env:SILICONFLOW_API_KEY}"
 
-[[models.rerankers]]
-name = "BAAI/bge-reranker-v2-m3"
-provider = "proxy/siliconflow"
-api_key = "${env:SILICONFLOW_API_KEY}"
+# [[models.rerankers]]
+# name = "BAAI/bge-reranker-v2-m3"
+# provider = "proxy/siliconflow"
+# api_key = "${env:SILICONFLOW_API_KEY}"
